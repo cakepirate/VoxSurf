@@ -5,14 +5,14 @@ add_subdirectory(lib/LibSL-small)
 set(XTL_INCLUDE_DIRS lib/xtl/include lib/xtensor/include
                      lib/xtensor-python/include)
 
-find_package(HDF5 COMPONENTS CXX)
-if(${HDF5_FOUND})
-  add_executable(VoxSurfExample src/pyvoxsurf/example.cpp)
-  target_compile_features(VoxSurfExample PRIVATE cxx_std_17)
-  target_include_directories(VoxSurfExample PRIVATE ${HDF5_INCLUDE_DIRS}
-                                                    ${XTL_INCLUDE_DIRS})
-  target_link_libraries(VoxSurfExample PRIVATE voxelizer ${HDF5_LIBRARIES})
-endif(${HDF5_FOUND})
+# find_package(HDF5 COMPONENTS CXX)
+# if(${HDF5_FOUND})
+  # add_executable(VoxSurfExample src/pyvoxsurf/example.cpp)
+  # target_compile_features(VoxSurfExample PRIVATE cxx_std_17)
+  # target_include_directories(VoxSurfExample PRIVATE ${HDF5_INCLUDE_DIRS}
+  #                                                   ${XTL_INCLUDE_DIRS})
+  # target_link_libraries(VoxSurfExample PRIVATE voxelizer ${HDF5_LIBRARIES})
+# endif(${HDF5_FOUND})
 
 add_library(voxelizer STATIC src/pyvoxsurf/voxelizer.cpp)
 target_compile_features(voxelizer PRIVATE cxx_std_17)
